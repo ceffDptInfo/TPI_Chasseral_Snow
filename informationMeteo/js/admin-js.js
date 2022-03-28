@@ -53,18 +53,6 @@ $(document).ready(function () {
 
 
     $(".checkBoxInstallationInput").on("click", function () {
-        // if (this.id == 0) {
-        //     console.log($(".checkBoxInstallationInput").val())
-        //     // if(this.checked) {
-        //     //     $('.checkBoxInstallationInput').each(function () {
-        //     //         $(".checkBoxInstallationInput").prop('checked', true);
-        //     //     })
-        //         // console.log($(".checkBoxInstallationInput").val())
-        //         // $(".checkBoxInstallationInput").each(function () {
-        //         //     $(".checkBoxInstallationInput").prop('checked',true);
-        //         // });
-        //     // }
-        // } else {
         if ($(this).is(":checked")) {
             $checkInAc = "checked";
             if (this.id == 0) {
@@ -72,7 +60,6 @@ $(document).ready(function () {
                     $(".checkBoxInstallationInput").prop('checked', true);
                 })
             }
-            // console.log("active " + this.id + " this day " + $("#datePicker").val() + "TRUE : " + $checkInAc)
         } else {
             $checkInAc = "notChecked";
             if (this.id == 0) {
@@ -80,9 +67,7 @@ $(document).ready(function () {
                     $(".checkBoxInstallationInput").prop('checked', false);
                 })
             }
-            // console.log("active " + this.id + " this day " + $("#datePicker").val() + "FALSE : " + $checkInAc)
         }
-        // }
         if (this.id == 0) {
             $('.checkBoxInstallationInput').each(function () {
                 console.log("installations changed " + this.id);
@@ -163,6 +148,7 @@ $(document).ready(function () {
                     texte_bul: $("#txtInput").val(),
                 }
             )
+            alert("validation a été fait avec succès")
             location.reload();
         }
     })

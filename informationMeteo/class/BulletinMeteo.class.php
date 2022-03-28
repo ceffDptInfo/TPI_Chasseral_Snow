@@ -13,17 +13,11 @@ class BulletinMeteo
     private $texte_bul;
     private $pdo;
 
-    public function __construct($id_bul = null)
+    public function __construct()
     {
         $this ->pdo = new PDO('mysql:dbname=' . BASE_NAME . ';host=' . SQL_HOST, SQL_USER, SQL_PASSWORD,
             array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8', PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
-//        if ($id_bul){
-//            $this->setIdBul($id_bul);
-//        }
     }
-
-
-//    public fun
 
     public function __toString()
     {
@@ -50,23 +44,10 @@ class BulletinMeteo
         $args['id_web'] = $tab['id_web'];
         $args['texte_bul'] = $tab['texte_bul'];
 
-//        $query= "INSERT INTO wp_bs_bulletin SET "
-//            . "heure_bul = :heure_bul"
-//            . "date_bul = :date_bul"
-//            . "temperature_bul = :temperature_bul"
-//            . "id_met = :id_met"
-//            . "id_pst = :id_pst"
-//            . "id_nge = :id_nge"
-//            . "id_web = :id_web"
-//            . "texte_bul = :texte_bul";
-
         $query= "INSERT INTO wp_bs_bulletin (`heure_bul`, `date_bul`, `temperature_bul`, `id_met`, `id_pst`, `id_nge`, `id_web`, `texte_bul`) VALUES
                                             (:heure_bul, :date_bul, :temperature_bul, :id_met, :id_pst, :id_nge, :id_web, :texte_bul)";
         try {
             $stmt = $this->pdo->prepare($query);
-//            $stmt-> bindParam('args' ,$args, PDO::PARAM_INT );
-//            foreach ($args as $val)
-//                echo($val . " // ");
             $stmt->execute($args);
             return $this->pdo->lastInsertId();
         }catch (Exception $e){

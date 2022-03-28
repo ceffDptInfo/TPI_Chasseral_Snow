@@ -9,7 +9,6 @@ $dateBefore = strtotime($_POST["date_ins"]);
 $insAddDB = array(
     'id_ins' => $_POST['id_ins'],
     'date_ins' => date("Y-m-d", $dateBefore),
-//    'ch' => $_POST['ch']
 );
 
 

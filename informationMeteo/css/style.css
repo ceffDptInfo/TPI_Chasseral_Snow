@@ -10,7 +10,6 @@
     background-color: red;
     padding: 2px;
     gap: 5px;
-    /*border: solid 5px red;*/
 }
 .topRight {
     display: grid;
@@ -24,7 +23,6 @@
     grid-area: topRight;
     background-color: white;
     padding-left: 5px;
-    /*border: solid 5px red;*/
     line-height: 0.7;
 }
 .imgTem {
@@ -48,7 +46,6 @@
     grid-area: bottomRight;
     background-color: white;
     padding-left: 5px;
-    /*border: solid 5px red;*/
     line-height: 0.7;
 }
 .insTelski {
@@ -69,10 +66,6 @@
     gap: 0px 0px;
     grid-template-areas:
     "statusInstallation";
-    /*"statusInstallation statusInstallation statusInstallation statusInstallation"*/
-    /*"statusInstallation statusInstallation statusInstallation statusInstallation"*/
-    /*"statusInstallation statusInstallation statusInstallation statusInstallation"*/
-    /*"statusInstallation statusInstallation statusInstallation statusInstallation";*/
     grid-area: installation;
 }
 

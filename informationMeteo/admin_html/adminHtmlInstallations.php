@@ -3,10 +3,8 @@ date_default_timezone_set("Europe/Zurich");
 
 $path = plugin_dir_url(dirname(__FILE__));
 
+//Faire des requêtes pour ramener les informations depuis la base des données
 global $wpdb;
-//$queryinstallation = <<<SQL
-//SELECT `id_ins`, `nom_ins` FROM `{$wpdb->prefix}bs_installations`;
-//SQL;
 $query1 = <<< SQL
             SELECT
                 `i`.`id_ins`
@@ -32,6 +30,8 @@ $result_ins = $wpdb->get_results($query1);
 <form method="post" action="" id="installationsEtatForm">
     <div class="row">
         <h2 class="bulletinInstallationTitreClass">Installations</h2>
+
+<!--    Le nom des installations avec un checkBox de chaque une    -->
         <div class="row">
             <div class="col">
                 <label id="installationText" class="form-check-label">Toutes les installations</label>

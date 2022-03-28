@@ -3,6 +3,7 @@ date_default_timezone_set("Europe/Zurich");
 
 $path = plugin_dir_url(dirname(__FILE__));
 
+//Faire des requêtes pour ramener les informations depuis la base des données
 global $wpdb;
 $queryMeteo = <<<SQL
 SELECT `id_met`, `etat_met` FROM `{$wpdb->prefix}bs_meteo`;       
@@ -17,7 +18,7 @@ $queryWebcam = <<<SQL
 SELECT `id_web`, `nom_web`, `act_web`, `def_web` FROM `{$wpdb->prefix}bs_webcam`;
 SQL;
 
-
+//Enregistrer les informations provenant de la base de données dans des "array"
 $result_met = $wpdb->get_results($queryMeteo);
 $result_pst = $wpdb->get_results($queryPistes);
 $result_nge = $wpdb->get_results($queryNeige);
@@ -28,10 +29,11 @@ $result_web = $wpdb->get_results($queryWebcam);
 </div>
 
 <div class="divlaInDate">
+<!--    choisisseur des dates-->
     <label id="dateLa"> Choisir une date : </label>
     <input name="datePicker" type="text" id="datePicker">
 
-    <!-- Button trigger modal -->
+    <!-- Bouton pour ouvrir le modal des gestions des webcams -->
     <button type="button" class="btn btn-outline-primary webcamButModAr" data-toggle="modal"
             data-target="#gestionWebcamModal">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-camera-video-fill webcamButMod"
@@ -49,7 +51,8 @@ $result_web = $wpdb->get_results($queryWebcam);
                 <h2 id="BulletinMeteoId" class="bulletinInstallationTitreClass">Bulletin météo</h2>
             </div>
         </div>
-        <!-- la partie heur -->
+
+        <!-- Choisisseur de temps-->
         <div class="row">
             <div class="col-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock bulIcon"
@@ -63,7 +66,8 @@ $result_web = $wpdb->get_results($queryWebcam);
             </div>
         </div>
         <div><label>&nbsp;</label></div>
-        <!-- la partie temperateur -->
+
+        <!-- Choisisseur de température -->
         <div class="row">
             <div class="col-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-thermometer-half bulIcon"
@@ -73,12 +77,12 @@ $result_web = $wpdb->get_results($queryWebcam);
                 </svg>
             </div>
             <div class="col align-self-center">
-                <!--                <input type="number" name="tempInputName" id="tempInput">-->
                 <input name="tempInputName" type="number" id="tempInput" class="form-control">
             </div>
         </div>
         <div><label>&nbsp;</label></div>
-        <!-- -->
+
+<!--        Sélectionneur de l'état de météo-->
         <div class="row">
             <div class="col-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cloud-snow bulIcon"
@@ -99,7 +103,8 @@ $result_web = $wpdb->get_results($queryWebcam);
             </div>
         </div>
         <div><label>&nbsp;</label></div>
-        <!-- la partie meteo  -->
+
+        <!-- Sélectionneur de l'état des pistes -->
         <div class="row">
             <div class="col-2">
                 <img class="imageSkie bulIcon" src="<?= $path ?>/imageIsActive/tsb.png">
@@ -117,7 +122,8 @@ $result_web = $wpdb->get_results($queryWebcam);
             </div>
         </div>
         <div><label>&nbsp;</label></div>
-        <!-- -->
+
+        <!-- Sélectionneur de l'état de neige -->
         <div class="row">
             <div class="col-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-snow2 bulIcon"
@@ -138,6 +144,8 @@ $result_web = $wpdb->get_results($queryWebcam);
             </div>
         </div>
         <div><label>&nbsp;</label></div>
+
+<!--        Sélectionneur des webcams-->
         <div class="row">
             <div class="col-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-camera-video-fill bulIcon"
@@ -161,6 +169,8 @@ $result_web = $wpdb->get_results($queryWebcam);
             </div>
         </div>
         <div><label>&nbsp;</label></div>
+
+<!--        saisisseur de texte-->
         <div class="row">
             <div class="col-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chat-dots bulIcon"
@@ -175,12 +185,11 @@ $result_web = $wpdb->get_results($queryWebcam);
         </div>
         <div><label>&nbsp;</label></div>
 
+<!--        Bouton de validation-->
         <div class="row">
             <input type="submit" name="validerBulMet" id="validerBulMet" value="Valider"/>
         </div>
     </form>
-
-    <!--    <div id="message"></div>-->
 </div>
 
 

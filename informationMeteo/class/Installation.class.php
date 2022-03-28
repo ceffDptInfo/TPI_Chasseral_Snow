@@ -22,15 +22,6 @@ class Installation
         return $str;
     }
 
-    public function allActive($id_ins){
-
-    }
-    public function allDesactive($id_ins){
-        $args['id_ins'] = $id_ins;
-//        $query = ""
-    }
-
-
     public function desactive($tab){
         $args['id_ins'] = $tab['id_ins'];
         $args['date_ins'] = $tab['date_ins'];

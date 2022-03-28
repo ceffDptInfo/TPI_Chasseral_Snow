@@ -1,4 +1,5 @@
 <?php
+//Appelez les fichiers responsables de la partie d'affichage de plugin dans la page administrative
 $path = ABSPATH.'wp-content/plugins/informationMeteo/admin_html/';
 require_once($path . 'adminHtmlBulletinmeteo.php');
 $path1 = ABSPATH.'wp-content/plugins/informationMeteo/admin_html/';

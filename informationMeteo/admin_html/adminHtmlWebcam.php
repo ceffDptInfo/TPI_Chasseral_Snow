@@ -1,6 +1,7 @@
 <?php
 $path = plugin_dir_url(dirname(__FILE__));
 
+//Faire des requêtes pour ramener les informations depuis la base des données
 global $wpdb;
 $queryWebcam = <<<SQL
 SELECT `id_web`, `url_web`, `nom_web`, `act_web`, `def_web` FROM `{$wpdb->prefix}bs_webcam`;       
@@ -20,6 +21,7 @@ $result_web = $wpdb->get_results($queryWebcam);
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+<!--    Nom, URL, Défaut, active de chaque webcam        -->
             <div class="modal-body">
                 <?php
                 foreach ($result_web as $val) {

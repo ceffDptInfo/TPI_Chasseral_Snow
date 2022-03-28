@@ -4,11 +4,11 @@ require("../class/Webcam.class.php");
 header('Content-Type: application/json');
 
 $web = new Webcam();
-//$wb = array(
-    $id_webRa = $_POST["id_webRa"];
-    $act = $_POST['chWeb'];
-    $id_webCh = $_POST["id_webCh"];
-//);
+
+$id_webRa = $_POST["id_webRa"];
+$act = $_POST['chWeb'];
+$id_webCh = $_POST["id_webCh"];
+
 echo $web->modificationdef($id_webRa);
 
 if ($act == "checked"){
